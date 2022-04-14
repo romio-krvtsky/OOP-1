@@ -1,0 +1,27 @@
+{% extends 'bank/base.html' %}
+
+
+<head>
+    <title>Transaction</title>
+
+</head>
+
+<body>
+
+<div style="text-align: right; font-size: xx-large"><a href={% url 'client_page' %}>Home</a></div>
+
+{% block content %}
+
+    <h1>Money Transaction</h1>
+    <h2>{{ sender_acc }}</h2>
+    <div style="text-align: left; font-size: xx-large">
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Transfer</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

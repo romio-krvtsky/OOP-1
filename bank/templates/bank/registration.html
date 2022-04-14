@@ -1,0 +1,26 @@
+{% load static %}
+
+<html>
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'css/bank.css' %}">
+</head>
+<body>
+
+<div style="text-align: center; color: forestgreen; font-size: xxx-large">BANKING SYSTEM</div>
+
+{% block content %}
+    <div class="login-page">
+
+        <form method="POST" action="">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <button type="submit">create</button>
+        </form>
+        <p class="message">Already registered? <a href={% url 'login' %}>Sign In</a></p>
+
+    </div>
+{% endblock %}
+
+</body>
+</html>

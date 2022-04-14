@@ -1,0 +1,41 @@
+{% extends 'bank/base.html' %}
+
+<head>
+    <title>Welcome</title>
+</head>
+<body>
+
+{% block content %}
+
+    {% if  freezing %}
+        <div style="color: blue; text-align: center; font-size: xxx-large">***FREEZING***</div>
+    {% endif %}
+
+    <div style="text-align: left; font-size: xx-large">
+        <a href="{% url 'client_info' %}">My profile</a>
+    </div>
+
+    <div style="text-align: left; font-size: xx-large">
+        <a href="{% url 'money_transaction' %}">Money Transaction</a>
+    </div>
+
+    <div style="text-align: left; font-size: xx-large">
+        <a href="{% url 'open_account' %}">Open an account</a>
+    </div>
+
+    <div style="text-align: left; font-size: xx-large">
+        <a href="{% url 'open_deposit' %}">Open a deposit</a>
+    </div>
+
+    <div style="text-align: left; font-size: xx-large">
+        <a href="{% url 'apply_for_credit' %}">Apply for a credit</a>
+    </div>
+
+    <div style="text-align: left; font-size: xx-large">
+        <a href="{% url 'apply_for_installment' %}">Apply for an installment</a>
+    </div>
+
+
+{% endblock %}
+</body>
+</html>

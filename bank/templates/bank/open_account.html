@@ -1,0 +1,25 @@
+{% extends 'bank/base.html' %}
+
+
+<head>
+    <title>Client</title>
+
+</head>
+
+<body>
+
+{% block content %}
+
+    <h1>Choose the bank, where you want to open account:</h1>
+
+    <div style="text-align: left; font-size: xx-large">
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Open</button>
+        </form>
+    </div>
+
+{% endblock %}
+
+</body>
+</html>

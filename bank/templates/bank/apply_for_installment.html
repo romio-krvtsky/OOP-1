@@ -1,0 +1,24 @@
+{% extends 'bank/base.html' %}
+
+
+<head>
+
+    <title>Client</title>
+</head>
+
+<body>
+
+{% block content %}
+
+    <div style="text-align: left; font-size: xx-large">Data for an Installment</div>
+
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Send</button>
+    </form>
+
+
+{% endblock %}
+
+</body>
+</html>

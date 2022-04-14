@@ -1,0 +1,26 @@
+{% load static %}
+
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/bank.css' %}">
+    <title>Title</title>
+</head>
+<body>
+
+<div style="text-align: left; color: forestgreen; font-size: xxx-large">BANKING SYSTEM</div>
+{% if request.user.role == 'Client' %}
+    <div style="text-align: right; font-size: large"><a href={% url 'client_page' %}>Home</a></div>
+{% else %}
+    <div style="text-align: right; font-size: large"><a href={% url 'manager_page' %}>Home</a></div>
+{% endif %}
+
+<div style="text-align: right; font-size: xx-large">{{ request.user.role }} {{ request.user.username }}</div>
+<div style="text-align: right; font-size: xx-large"><a href={% url 'logout' %}>Log out</a></div>
+<div class="login-page">
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+</body>
+</html>

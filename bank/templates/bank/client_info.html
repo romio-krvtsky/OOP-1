@@ -1,0 +1,121 @@
+{% extends 'bank/base.html' %}
+
+{% block content %}
+
+    {% if block_acc %}
+        <div style="color: red; text-align: center; font-size: x-large">Accounts</div>
+    {% else %}
+        <div style="color: seashell; text-align: center; font-size: x-large">Accounts</div>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ac in accounts %}
+            {% if ac.user.username == request.user.username %}
+                <tr>
+                    <td>{{ ac.id }}</td>
+                    <td>{{ ac.bank }}</td>
+                    <td>{{ ac.sum }}</td>
+                    <td>{{ ac.opening_date }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if block_dep %}
+        <div style="color: red; text-align: center; font-size: x-large">Deposits</div>
+    {% else %}
+        <div style="color: seashell; text-align: center; font-size: x-large">Deposits</div>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in deposits %}
+            {% if d.user.username == request.user.username %}
+                <tr>
+                    <td>{{ d.id }}</td>
+                    <td>{{ d.bank }}</td>
+                    <td>{{ d.sum }}</td>
+                    <td>{{ d.opening_date }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div style="color: seashell; text-align: center; font-size: x-large">Credits</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cr in credits %}
+            {% if cr.user.username == request.user.username %}
+                {% if cr.credit_status == 'checking' or cr.credit_status == 'accepted' %}
+                    <tr>
+                        <td>{{ cr.id }}</td>
+                        <td>{{ cr.bank }}</td>
+                        <td>{{ cr.sum }}</td>
+                        <td>{{ cr.opening_date }}</td>
+
+                        <td>{{ cr.credit_status }}</td>
+
+                    </tr>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div style="color: seashell; text-align: center; font-size: x-large">Installments</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in installmets %}
+            {% if i.user.username == request.user.username %}
+                <tr>
+                    <td>{{ i.id }}</td>
+                    <td>{{ i.bank }}</td>
+                    <td>{{ i.sum }}</td>
+                    <td>{{ i.opening_date }}</td>
+                    <td>{{ i.installment_status }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

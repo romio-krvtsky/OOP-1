@@ -1,0 +1,130 @@
+{% extends 'bank/base.html' %}
+
+<html>
+<head>
+    <title>Manager</title>
+</head>
+<body>
+
+{% block content %}
+
+     <div style="text-align: right; font-size: xx-large"><a href={% url 'financial_management' %}>Financial Management</a></div>
+
+    <div style="color: seashell; text-align: center; font-size: x-large">Accounts</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>user</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for ac in accounts %}
+
+            <tr>
+                <td>{{ ac.id }}</td>
+                <td>{{ ac.user.username }}</td>
+                <td>{{ ac.bank }}</td>
+                <td>{{ ac.sum }}</td>
+                <td>{{ ac.opening_date }}</td>
+                <td>{{ ac.block_status }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div style="color: seashell; text-align: center; font-size: x-large">Deposits</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>user</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for d in deposits %}
+            <tr>
+                <td>{{ d.id }}</td>
+                <td>{{ d.user.username }}</td>
+                <td>{{ d.bank }}</td>
+                <td>{{ d.sum }}</td>
+                <td>{{ d.opening_date }}</td>
+                <td>{{ d.block_status }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div style="color: seashell; text-align: center; font-size: x-large">Credits</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>user</th>
+            <th>bank</th>
+            <th>sum</th>
+            <th>opening date</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cr in credits %}
+
+            <tr>
+                <td>{{ cr.id }}</td>
+                <td>{{ cr.user.username }}</td>
+                <td>{{ cr.bank }}</td>
+                <td>{{ cr.sum }}</td>
+                <td>{{ cr.opening_date }}</td>
+                <td>{{ cr.credit_status }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+    <div style="color: seashell; text-align: center; font-size: x-large">Installments</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>user</th>
+            <th>company</th>
+            <th>sum</th>
+            <th>opening date</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in installmets %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.user.username }}</td>
+                <td>{{ i.company }}</td>
+                <td>{{ i.sum }}</td>
+                <td>{{ i.opening_date }}</td>
+                <td>{{ i.installment_status }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+{% endblock %}
+</body>
+</html>
