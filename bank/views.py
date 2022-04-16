@@ -218,8 +218,6 @@ def apply_for_credit(request):
     if freezing():
         return HttpResponse('Is Freezing a joke for U???')
 
-
-
     return render(request, 'bank/apply_for_credit.html', {'form': form})
 
 
@@ -244,6 +242,4 @@ def apply_for_installment(request):
 
 def freezing():
     frz = Economics.objects.all().get(freeze_status=True)
-    if frz:
-        return True
-    return False
+    return True if frz else False
